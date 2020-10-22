@@ -55,13 +55,15 @@ function bestTicTacToe ()
             if strcmp( firstPlayer, 'person') == true
                 while (true)
                     gameInput = input( 'What is the cell location you would like to play?' , 's');
-                    if (strcmpi (gameInput, "T1") == true)
+                    
 %                         This if, elseif, elseif... else loop determines
 %                         which gameboard location to assign the user's "x"
 %                         icon. If the spot is already taken, it lets the
 %                         user know that they cannot chose that spot and
 %                         returns them to the original promt "What is the
 %                         cell location you would like to play?"
+                    
+                    if (strcmpi (gameInput, "T1") == true)
                         if (strcmpi (gameMatrix (1, 1), "T1") == true)
                             gameMatrix (1, 1) = "x"; 
                             break
@@ -156,11 +158,14 @@ function bestTicTacToe ()
                 firstPlayer = 'machine';
             end
 %             This statement tells the computer to alternate turns.
+
             disp( gameMatrix)
+            
 %             This next series if, elseif, elseif... else statements check
 %             to see if there is a winner after each individual turn. If
 %             there is, a statement is displayed to announce the winner. If
 %             not, it notifies the player that the game is continuing. 
+
             if (strcmp (gameMatrix(1,1) , gameMatrix(1,2)) && ...
                 strcmp (gameMatrix(1,2) , gameMatrix(1,3)))
                 if strcmp( gameMatrix (1,1) , "x" )
