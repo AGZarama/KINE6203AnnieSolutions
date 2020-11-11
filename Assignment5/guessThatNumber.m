@@ -78,7 +78,7 @@ while userGuess ~= secretNumber
     userGuess = input('');
     
     % add 1 to the number of guesses the user has made
-    numOfTries = numOfTries + 1; %Found bug 6: numOfTries needed to be within a guessing loop in order to be correctly increased. Found by reading script.
+    numOfTries = numOfTries + 1; 
     
     while userGuess < 1 || userGuess > highest    % Found bug 5: upper limit of userGuess was set to ">=" highest, instead of ">". Found by running script and trying to guess numbers around, at, and over the limit.
         fprintf('Sorry, that is not a valid guess.\nRe-enter a guess (1-%d): ', highest);
