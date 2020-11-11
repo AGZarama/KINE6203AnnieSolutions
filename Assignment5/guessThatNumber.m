@@ -66,7 +66,7 @@ secretNumber = floor(rand() * highest);  %Found bug 4: expression contained a "+
 
 
 % initialize number of guesses and User_guess
-numOfTries = 0; %Found bug 10: numOfTries was incorrectly set to 1. Found by running script and seeing the inaccurate value.
+numOfTries = 0; %Found bug 5: numOfTries was incorrectly set to 1. Found by running script and seeing the inaccurate value.
 userGuess = 0;
 
 
@@ -80,14 +80,14 @@ while userGuess ~= secretNumber
     % add 1 to the number of guesses the user has made
     numOfTries = numOfTries + 1; 
     
-    while userGuess < 1 || userGuess > highest    % Found bug 5: upper limit of userGuess was set to ">=" highest, instead of ">". Found by running script and trying to guess numbers around, at, and over the limit.
+    while userGuess < 1 || userGuess > highest    % Found bug 6: upper limit of userGuess was set to ">=" highest, instead of ">". Found by running script and trying to guess numbers around, at, and over the limit.
         fprintf('Sorry, that is not a valid guess.\nRe-enter a guess (1-%d): ', highest);
         userGuess = input('');
     end %Found bug 7: missing end to while loop. Found by reading script.
 
     % report whether the user's guess was high, low, or correct
     %Found bug 8: secret number statment evaluation needed to be within the while loop for incorrect guesses.
-    if userGuess < secretNumber   %Found bug 6: incorrectly written as "> secretNumber" instead of "<". Found by reading through script.
+    if userGuess < secretNumber   %Found bug 9: incorrectly written as "> secretNumber" instead of "<". Found by reading through script.
         fprintf('Sorry, %d is too low.\n', userGuess);
     elseif userGuess > secretNumber 
         fprintf('Sorry, %d is too high.\n', userGuess);
@@ -96,13 +96,13 @@ while userGuess ~= secretNumber
 end % of guess validation as incorrect loop
 
 
-while userGuess == secretNumber   %Found bug 11: correct guess evaluation could not be housed within incorrect guess while loop. Found by reading script.
+while userGuess == secretNumber   %Found bug 10: correct guess evaluation could not be housed within incorrect guess while loop. Found by reading script.
     if numOfTries == 1 
         fprintf('\nLucky You!  You got it on your first try!\n\n');
         fprintf('Game Over. Thanks for playing the Guess That Number game.\n\n');
         break
     elseif numOfTries > 1
-        fprintf('\nCongratulations!  You got %d in %d tries.\n\n', secretNumber, numOfTries);    %Found bug 9: needed to include numOfTries variable in expression. Found by running script and seeing it missing.
+        fprintf('\nCongratulations!  You got %d in %d tries.\n\n', secretNumber, numOfTries);    %Found bug 11 needed to include numOfTries variable in expression. Found by running script and seeing it missing.
         fprintf('Game Over. Thanks for playing the Guess That Number game.\n\n');
         break
     end %end of correct guess response loop
