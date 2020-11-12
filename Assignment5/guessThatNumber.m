@@ -96,13 +96,13 @@ while userGuess ~= secretNumber
 end % of guess validation as incorrect loop
 
 
-while userGuess == secretNumber   %Found bug 10: correct guess evaluation could not be housed within incorrect guess while loop. Found by reading script.
+while userGuess == secretNumber
     if numOfTries == 1 
         fprintf('\nLucky You!  You got it on your first try!\n\n');
         fprintf('Game Over. Thanks for playing the Guess That Number game.\n\n');
         break
     elseif numOfTries > 1
-        fprintf('\nCongratulations!  You got %d in %d tries.\n\n', secretNumber, numOfTries);    %Found bug 11 needed to include numOfTries variable in expression. Found by running script and seeing it missing.
+        fprintf('\nCongratulations!  You got %d in %d tries.\n\n', secretNumber, numOfTries);    %Found bug 10 needed to include numOfTries variable in expression. Found by running script and seeing it missing.
         fprintf('Game Over. Thanks for playing the Guess That Number game.\n\n');
         break
     end %end of correct guess response loop
